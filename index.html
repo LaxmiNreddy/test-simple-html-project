@@ -1,36 +1,355 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First OpenShift App Done by Laxmi Narayan For Test</title>
+
+    <title>My OpenShift Website</title>
+
     <style>
-        body { 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
+            background: #f4f7fb;
+            color: #243247;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: #152238;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ff9b70;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 470px;
+            padding: 60px 8%;
+            background: linear-gradient(120deg, #172a46, #2457a7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 580px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ff9b70;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #e0e9f7;
+            margin-bottom: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #e95623;
+            transform: translateY(-2px);
+        }
+
+        /* Illustration */
+        .hero-image {
+            width: 340px;
+            max-width: 100%;
+            flex-shrink: 0;
+        }
+
+        /* Main content */
+        .section {
+            padding: 65px 8%;
             text-align: center;
-            padding: 60px 20px;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+            color: #172a46;
+        }
+
+        .section-intro {
+            color: #64748b;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .card {
             background: white;
-            padding: 30px;
+            padding: 28px 22px;
             border-radius: 12px;
-            max-width: 500px;
-            margin: auto;
-            box-shadow: 0 4px 12px #cccccc;
+            box-shadow: 0 5px 20px rgba(20, 40, 70, 0.08);
+            transition: 0.2s;
         }
 
-        h1 {
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(20, 40, 70, 0.13);
+        }
+
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
             color: #2457a7;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        /* About section */
+        .about {
+            background: white;
+            padding: 55px 8%;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 12px auto;
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            background: #152238;
+            color: #dbe5f2;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 6%;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-image {
+                width: 260px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>Hello, OpenShift!By LNRRRRRRRRRRRRR</h1>
-        <p>My first HTML application is running.</p>
-        <p>Deployed successfully using OpenShift.</p>
-    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">LNR<span> Dev</span></div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <h1>Hello, OpenShift!<br>
+                <span>By LNRRRRRRRRRRRRR</span>
+            </h1>
+
+            <p>
+                Welcome to my first web application deployed on
+                Red Hat OpenShift. Built with HTML and CSS,
+                and running inside a container.
+            </p>
+
+            <a class="button" href="#features">Explore My Project</a>
+        </div>
+
+        <!-- Built-in SVG illustration -->
+        <svg class="hero-image"
+             viewBox="0 0 400 300"
+             xmlns="http://www.w3.org/2000/svg"
+             role="img"
+             aria-label="Illustration of a cloud application running on a server">
+
+            <rect x="35" y="45" width="330" height="220"
+                  rx="22" fill="#ffffff" opacity="0.12"/>
+
+            <path d="M125 105
+                     C125 78 147 58 174 58
+                     C193 58 209 69 217 86
+                     C225 80 234 77 244 77
+                     C270 77 290 97 290 122
+                     C290 147 270 166 245 166
+                     H135 C110 166 91 147 91 123
+                     C91 113 96 105 104 99"
+                  fill="#e8f2ff"/>
+
+            <rect x="115" y="155" width="170" height="92"
+                  rx="12" fill="#ffffff"/>
+
+            <rect x="128" y="168" width="144" height="12"
+                  rx="6" fill="#2457a7"/>
+
+            <circle cx="139" cy="174" r="3" fill="#ff9b70"/>
+            <circle cx="150" cy="174" r="3" fill="#ff9b70"/>
+
+            <rect x="135" y="193" width="130" height="8"
+                  rx="4" fill="#dce7f5"/>
+
+            <rect x="135" y="209" width="90" height="8"
+                  rx="4" fill="#dce7f5"/>
+
+            <circle cx="200" cy="229" r="7" fill="#36b37e"/>
+
+            <path d="M200 247 V267 M160 267 H240"
+                  stroke="#ffffff" stroke-width="7"
+                  stroke-linecap="round"/>
+
+            <circle cx="315" cy="70" r="8" fill="#ff9b70"/>
+            <circle cx="75" cy="210" r="6" fill="#ff9b70"/>
+            <circle cx="325" cy="225" r="5" fill="#ffffff"/>
+        </svg>
+
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+
+        <h2>My Project Features</h2>
+        <p class="section-intro">
+            A simple website demonstrating my OpenShift deployment.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>HTML Website</h3>
+                <p>
+                    A responsive webpage created using HTML
+                    and CSS.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🐳</div>
+                <h3>Containerized</h3>
+                <p>
+                    Packaged into a container image and
+                    served using NGINX.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">☁️</div>
+                <h3>OpenShift</h3>
+                <p>
+                    Deployed and running as an application
+                    on the OpenShift platform.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <h2>About This Project</h2>
+
+        <p>
+            This is my first HTML application deployed on
+            Red Hat OpenShift. I am learning containerization,
+            application deployment, Services, and Routes.
+        </p>
+
+        <p>
+            Thank you for visiting my project!
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 LNR Dev | My First OpenShift Application</p>
+        <p>Built with HTML, CSS, Docker, and OpenShift</p>
+    </footer>
+
 </body>
 </html>
+
